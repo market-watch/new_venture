@@ -1,7 +1,5 @@
-// Declare allData globally
 let allData = [];
 
-// Fetch data from JSON files and populate filters
 async function fetchData() {
     try {
         const fileCount = 50; // Number of JSON files
@@ -25,16 +23,13 @@ async function fetchData() {
             }
         }
 
-        await populateFilters(allData);
+        await populateFilters();
     } catch (error) {
         console.error('Error fetching JSON data:', error);
     }
 }
 
-// Populate filters using unique_values.json and jur_dict.json
-async function populateFilters(data) {
-    const uniqueValueColumns = ['Pro', 'organization_type', 'Pex', 'Area_share', 'FY'];
-
+async function populateFilters() {
     try {
         const [uniqueValuesResponse, jurisdictionResponse] = await Promise.all([
             fetch('unique_values.json'),
@@ -44,22 +39,23 @@ async function populateFilters(data) {
         const uniqueValuesData = uniqueValuesResponse.ok ? await uniqueValuesResponse.json() : {};
         const jurisdictionData = jurisdictionResponse.ok ? await jurisdictionResponse.json() : {};
 
-        // Populate dropdowns for unique values
-        uniqueValueColumns.forEach(col => {
-            const dropdown = document.getElementById(col);
-            if (dropdown && uniqueValuesData[col]) {
-                populateDropdown(uniqueValuesData[col], dropdown);
-            }
-        });
+        // Populate Commissionerate dropdown from jur_dict.json keys
+        const commissionerateDropdown = document.getElementById('commissionerate');
+        populateDropdown(Object.keys(jurisdictionData), commissionerateDropdown);
 
-        // Populate jurisdiction dropdowns
-        const jurisdictionColumns = ['Commissionerate', 'Division', 'Range'];
-        jurisdictionColumns.forEach(col => {
-            const dropdown = document.getElementById(col);
-            if (dropdown && jurisdictionData[col]) {
-                populateDropdown(jurisdictionData[col], dropdown);
-            }
-        });
+        // Populate other dropdowns from unique_values.json
+        const dropdowns = {
+            'pro': uniqueValuesData.Pro,
+            'organizationType': uniqueValuesData.organization_type,
+            'pex': uniqueValuesData.Pex,
+            'areaShare': uniqueValuesData.Area_share,
+            'fy': uniqueValuesData.FY
+        };
+
+        for (let dropdownId in dropdowns) {
+            const dropdown = document.getElementById(dropdownId);
+            populateDropdown(dropdowns[dropdownId], dropdown);
+        }
 
         // Attach filter listener
         document.querySelectorAll("input, select").forEach(filter => {
@@ -70,13 +66,13 @@ async function populateFilters(data) {
     }
 }
 
-// Populate dropdown options
+// Populate dropdown options with an 'All' option
 function populateDropdown(values, dropdown) {
     dropdown.innerHTML = `<option value="">All</option>`;
     values.forEach(value => {
         const option = document.createElement('option');
         option.value = value;
-        option.textContent = value;
+        option.textContent = value === null ? 'N/A' : value;
         dropdown.appendChild(option);
     });
 }
@@ -93,13 +89,10 @@ function filterData() {
         Website: document.getElementById('Website').value.toLowerCase(),
         Total_fsi: document.getElementById('Total_fsi').value.toLowerCase(),
         commissionerate: document.getElementById('commissionerate').value,
-        division: document.getElementById('division').value,
-        range: document.getElementById('range').value,
         pro: document.getElementById('pro').value,
         organization_type: document.getElementById('organizationType').value,
         pex: document.getElementById('pex').value,
         area_share: document.getElementById('areaShare').value,
-        revenue_share: document.getElementById('revenueShare').value,
         fy: document.getElementById('fy').value
     };
 
