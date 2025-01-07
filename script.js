@@ -113,7 +113,7 @@ function filterData() {
         fy: document.getElementById('fy').value
     };
 
-    const filteredData = jsonData.filter(row => {
+    const filteredData = allData.filter(row => {
         return (
             (!filters.Key || row.Key.toLowerCase().includes(filters.Key)) &&
             (!filters.pin_code_1 || row.pin_code_1.toLowerCase().includes(filters.pin_code_1)) &&
