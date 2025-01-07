@@ -51,10 +51,10 @@ function populateTable(data) {
         const rowElement = document.createElement('tr');
 
         // Loop through the columns and add each cell
-        const columns = ['Key', 'Value', 'pin_code_1', 'pin_code_2', 'Pro', 'organization_type',
+        const columns = ['Key', 'pin_code_1', 'pin_code_2', 'Pro', 'organization_type',
                          'organization_name', 'Project Status', 'Commissionerate', 'Division',
                          'Range', 'address', 'Project Name', 'Completion', 'Pex', 'Website',
-                         'apartment_details', 'Total_fsi', 'Area_share', 'Project_Link',
+                          'Total_fsi', 'Area_share', 'Project_Link',
                          'Doc_Link', 'Revenue Share'];
 
         columns.forEach(column => {
