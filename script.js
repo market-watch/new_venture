@@ -17,8 +17,8 @@ async function fetchData() {
             }
 
             // Log raw response to check its content before parsing
-            const rawData = await response.text();
-            console.log(`Raw data for ${fileName}:`, rawData);  // Log raw content of file
+            //const rawData = await response.text();
+          //  console.log(`Raw data for ${fileName}:`, rawData);  // Log raw content of file
 
             // Attempt to parse the JSON data
             let data;
