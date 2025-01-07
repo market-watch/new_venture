@@ -1,8 +1,9 @@
+let allData = []; // Declare allData globally
+
 // Function to fetch data from multiple JSON files
 async function fetchData() {
     try {
         const fileCount = 50; // Number of JSON files
-        let allData = []; // Array to hold data from all files
 
         // Loop through the 50 JSON files
         for (let i = 1; i <= fileCount; i++) {
@@ -18,7 +19,6 @@ async function fetchData() {
 
             // Log raw response to check its content before parsing
             const rawData = await response.text();
-          //  console.log(`Raw data for ${fileName}:`, rawData);  // Log raw content of file
 
             // Attempt to parse the JSON data
             let data;
@@ -54,7 +54,7 @@ function populateTable(data) {
         const columns = ['Key', 'pin_code_1', 'pin_code_2', 'Pro', 'organization_type',
                          'organization_name', 'Project Status', 'Commissionerate', 'Division',
                          'Range', 'address', 'Project Name', 'Completion', 'Pex', 'Website',
-                          'Total_fsi', 'Area_share', 'Project_Link',
+                         'Total_fsi', 'Area_share', 'Project_Link',
                          'Doc_Link', 'Revenue Share'];
 
         columns.forEach(column => {
@@ -81,7 +81,7 @@ function populateFilters(data) {
 
 // Function to populate dropdowns with unique values
 function populateDropdown(data, dropdown, key) {
-    const uniqueValues = [...new Set(data.map(row => row[key]))];
+    const uniqueValues = [...new Set(data.map(row => row[key]))];  // Get unique values
     dropdown.innerHTML = ''; // Clear existing options
     uniqueValues.forEach(value => {
         const option = document.createElement('option');
