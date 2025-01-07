@@ -26,7 +26,7 @@ async function fetchData() {
         console.error('Error fetching JSON data:', error);
     }
 
-
+}
 // Function to populate the table with the data
 function populateTable(data) {
     const tableBody = document.getElementById('data-table');
