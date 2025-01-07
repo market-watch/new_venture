@@ -1,14 +1,31 @@
-// Fetch JSON data from the file
+// Function to fetch data from multiple JSON files
 async function fetchData() {
     try {
-        const response = await fetch('data.json'); // Adjust the path to your JSON file if necessary
-        const data = await response.json();
-        populateTable(data);
-        populateFilters(data);
+        const fileCount = 50; // Number of JSON files
+        let allData = []; // Array to hold data from all files
+
+        // Loop through the 50 JSON files
+        for (let i = 1; i <= fileCount; i++) {
+            const fileName = `bird_github${String(i).padStart(2, '0')}.json`; // File name pattern
+            const response = await fetch(fileName);
+            
+            // Check if the response is OK (status code 200)
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            allData = allData.concat(data); // Merge the data from each file
+        }
+
+        // Process the fetched data (e.g., populate tables, filters)
+        populateTable(allData);
+        populateFilters(allData);
+
     } catch (error) {
         console.error('Error fetching JSON data:', error);
     }
-}
+
 
 // Function to populate the table with the data
 function populateTable(data) {
