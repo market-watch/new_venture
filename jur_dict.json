@@ -1,0 +1,569 @@
+{
+    "null": {},
+    "Mumbai-South": {
+        "Division III": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II"
+        ],
+        "Division VIII": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-V"
+        ],
+        "Division V": [
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-V"
+        ],
+        "Division IX": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division VII": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-V"
+        ],
+        "Division X": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division VI": [
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-I"
+        ],
+        "Division II": [
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-I"
+        ],
+        "Division IV": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-III"
+        ]
+    },
+    "Mumbai-West": {
+        "Division VII": [
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-II"
+        ],
+        "Division VI": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-V"
+        ],
+        "Division IV": [
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-II"
+        ],
+        "Division III": [
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-IV"
+        ],
+        "Division X": [
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-V"
+        ],
+        "Division V": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-V"
+        ],
+        "Division I": [
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-I"
+        ],
+        "Division II": [
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-IV"
+        ],
+        "Division IX": [
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-II"
+        ],
+        "Division VIII": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-IV"
+        ]
+    },
+    "Mumbai-Central": {
+        "Division VIII": [
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division IX": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-III"
+        ],
+        "Division III": [
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-IV"
+        ],
+        "Division II": [
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-II"
+        ],
+        "Division VI": [
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-III"
+        ],
+        "Division IV": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-I"
+        ],
+        "Division VII": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-I"
+        ],
+        "Division X": [
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division V": [
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-VI",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division I": [
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-VI",
+            "RANGE-II",
+            "RANGE-I"
+        ]
+    },
+    "Mumbai-East": {
+        "Division IV": [
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-IV"
+        ],
+        "Division VII": [
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-II"
+        ],
+        "Division III": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-II"
+        ],
+        "Division II": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-III"
+        ],
+        "Division I": [
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-I"
+        ],
+        "Division VIII": [
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-II"
+        ],
+        "Division IX": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II"
+        ],
+        "Division V": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-III"
+        ],
+        "Division X": [
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-IV"
+        ]
+    },
+    "Thane Rural": {
+        "Division II": [
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-I"
+        ],
+        "Division IV": [
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-III"
+        ],
+        "Division V": [
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-IV"
+        ],
+        "Division III": [
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-I"
+        ],
+        "Division VI": [
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-V"
+        ],
+        "Division I": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-II"
+        ]
+    },
+    "Bhiwandi": {
+        "Division IV": [
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-V"
+        ],
+        "Division I": [
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-V"
+        ],
+        "Division V": [
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-IV"
+        ],
+        "Division III": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV"
+        ],
+        "Division II": [
+            "RANGE-V"
+        ]
+    },
+    "Belapur": {
+        "Division I": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II"
+        ],
+        "Division II": [
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-I"
+        ],
+        "Division III": [
+            "RANGE-I",
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-IV"
+        ],
+        "Division VI": [
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II"
+        ],
+        "Division IV": [
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-IV"
+        ],
+        "Division V": [
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-V",
+            "RANGE-IV"
+        ]
+    },
+    "Thane": {
+        "Division V": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-VI",
+            "RANGE-III",
+            "RANGE-II"
+        ],
+        "Division IV": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-VI",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-III"
+        ],
+        "Division I": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-VI",
+            "RANGE-III"
+        ],
+        "Division VI": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-VI",
+            "RANGE-II"
+        ],
+        "Division II": [
+            "RANGE-V",
+            "RANGE-VI",
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-I"
+        ],
+        "Division III": [
+            "RANGE-VI",
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-II"
+        ]
+    },
+    "NaVI Mumbai": {
+        "Division II": [
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-VI",
+            "RANGE-II"
+        ],
+        "Division V": [
+            "RANGE-III",
+            "RANGE-VI",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-I"
+        ],
+        "Division I": [
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-VI",
+            "RANGE-III"
+        ],
+        "Division III": [
+            "RANGE-IV",
+            "RANGE-V",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-VI"
+        ],
+        "Division IV": [
+            "RANGE-VI",
+            "RANGE-IV",
+            "RANGE-II",
+            "RANGE-III",
+            "RANGE-I",
+            "RANGE-V"
+        ],
+        "Division VII": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-VI",
+            "RANGE-II"
+        ],
+        "Division VI": [
+            "RANGE-III",
+            "RANGE-IV",
+            "RANGE-VI",
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-II"
+        ]
+    },
+    "Raigarh": {
+        "Division V": [
+            "RANGE-II",
+            "RANGE-I",
+            "RANGE-VI",
+            "RANGE-V",
+            "RANGE-IV",
+            "RANGE-III"
+        ],
+        "Division IV": [
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-VI",
+            "RANGE-IV",
+            "RANGE-III"
+        ],
+        "Division III": [
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-VI"
+        ],
+        "Division II": [
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-V",
+            "RANGE-III"
+        ]
+    },
+    "Palghar": {
+        "Division IV": [
+            "RANGE-V",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-IV",
+            "RANGE-III",
+            "RANGE-VI"
+        ],
+        "Division V": [
+            "RANGE-VI",
+            "RANGE-I"
+        ],
+        "Division III": [
+            "RANGE-II",
+            "RANGE-V"
+        ],
+        "Division II": [
+            "RANGE-V",
+            "RANGE-VI",
+            "RANGE-IV"
+        ],
+        "Division I": [
+            "RANGE-IV",
+            "RANGE-I",
+            "RANGE-II",
+            "RANGE-V",
+            "RANGE-III",
+            "RANGE-VI"
+        ],
+        "Division VI": [
+            "RANGE-IV"
+        ]
+    }
+}
