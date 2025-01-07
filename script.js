@@ -7,14 +7,28 @@ async function fetchData() {
         // Loop through the 50 JSON files
         for (let i = 1; i <= fileCount; i++) {
             const fileName = `bird_github${String(i).padStart(2, '0')}.json`; // File name pattern
+            console.log(`Fetching file: ${fileName}`); // Log the file being fetched
+
             const response = await fetch(fileName);
-            
+
             // Check if the response is OK (status code 200)
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
             }
 
-            const data = await response.json();
+            // Log raw response to check its content before parsing
+            const rawData = await response.text();
+            console.log(`Raw data for ${fileName}:`, rawData);  // Log raw content of file
+
+            // Attempt to parse the JSON data
+            let data;
+            try {
+                data = JSON.parse(rawData); // Explicitly parse the data
+            } catch (parseError) {
+                console.error(`Error parsing JSON from ${fileName}:`, parseError);
+                continue; // Skip this file if it can't be parsed
+            }
+
             allData = allData.concat(data); // Merge the data from each file
         }
 
@@ -25,8 +39,8 @@ async function fetchData() {
     } catch (error) {
         console.error('Error fetching JSON data:', error);
     }
-
 }
+
 // Function to populate the table with the data
 function populateTable(data) {
     const tableBody = document.getElementById('data-table');
