@@ -5,61 +5,51 @@ async function fetchData() {
     try {
         const fileCount = 50; // Number of JSON files
 
-        // Loop through the 50 JSON files
         for (let i = 1; i <= fileCount; i++) {
             const fileName = `bird_github${String(i).padStart(2, '0')}.json`; // File name pattern
             console.log(`Fetching file: ${fileName}`); // Log the file being fetched
 
             const response = await fetch(fileName);
 
-            // Check if the response is OK (status code 200)
             if (!response.ok) {
-                throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
+                console.warn(`Failed to fetch ${fileName}: ${response.statusText}`);
+                continue; // Skip this file if fetch fails
             }
 
-            // Log raw response to check its content before parsing
             const rawData = await response.text();
 
-            // Attempt to parse the JSON data
-            let data;
             try {
-                data = JSON.parse(rawData); // Explicitly parse the data
+                const data = JSON.parse(rawData); // Parse JSON
+                allData = allData.concat(data); // Merge the data from each file
             } catch (parseError) {
                 console.error(`Error parsing JSON from ${fileName}:`, parseError);
-                continue; // Skip this file if it can't be parsed
             }
-
-            allData = allData.concat(data); // Merge the data from each file
         }
 
-        // Process the fetched data (e.g., populate tables, filters)
-        populateTable(allData);
+        // Populate filters only after all data is loaded
         populateFilters(allData);
-
     } catch (error) {
         console.error('Error fetching JSON data:', error);
     }
 }
 
-// Function to populate the table with the data
+// Function to populate the table with filtered data
 function populateTable(data) {
     const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = ''; // Clear any existing table rows
+    tableBody.innerHTML = ''; // Clear existing table rows
 
-    // Loop through each row of data and add it to the table
     data.forEach(row => {
         const rowElement = document.createElement('tr');
 
-        // Loop through the columns and add each cell
         const columns = ['Key', 'pin_code_1', 'pin_code_2', 'Pro', 'organization_type',
-                         'organization_name', 'Project Status', 'Commissionerate', 'Division',
-                         'Range', 'address', 'Project Name', 'Completion', 'Pex', 'Website',
-                         'Total_fsi', 'Area_share', 'Project_Link',
-                         'Doc_Link', 'Revenue Share'];
+            'organization_name', 'Project Status', 'Commissionerate', 'Division',
+            'Range', 'address', 'Project Name', 'Completion', 'Pex', 'Website',
+            'Total_fsi', 'Area_share', 'Project_Link',
+            'Doc_Link', 'Revenue Share'];
 
         columns.forEach(column => {
             const cell = document.createElement('td');
-            cell.textContent = row[column] || ''; // Default to empty string if data is missing
+            cell.textContent = row[column] !== null && row[column] !== undefined ? row[column] : ''; // Handle null/undefined values
             rowElement.appendChild(cell);
         });
 
@@ -81,8 +71,14 @@ function populateFilters(data) {
 
 // Function to populate dropdowns with unique values
 function populateDropdown(data, dropdown, key) {
-    const uniqueValues = [...new Set(data.map(row => row[key]))];  // Get unique values
+    const uniqueValues = [...new Set(data.map(row => row[key]).filter(val => val !== null && val !== undefined))]; // Filter null/undefined values
     dropdown.innerHTML = ''; // Clear existing options
+
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'All';
+    dropdown.appendChild(defaultOption);
+
     uniqueValues.forEach(value => {
         const option = document.createElement('option');
         option.value = value;
@@ -91,12 +87,12 @@ function populateDropdown(data, dropdown, key) {
     });
 }
 
-// Filter function for direct inputs (Search by Key, Pin Code, etc.)
+// Filter function for direct inputs and dropdowns
 function filterData() {
     const filters = {
         Key: document.getElementById('Key').value.toLowerCase(),
-        pin_code_1: document.getElementById('pin_code_1').value.toLowerCase(),
-        pin_code_2: document.getElementById('pin_code_2').value.toLowerCase(),
+        pin_code_1: document.getElementById('pin_code_1').value,
+        pin_code_2: document.getElementById('pin_code_2').value,
         organization_name: document.getElementById('organization_name').value.toLowerCase(),
         address: document.getElementById('address').value.toLowerCase(),
         'Project Name': document.getElementById('Project_Name').value.toLowerCase(),
@@ -115,13 +111,13 @@ function filterData() {
 
     const filteredData = allData.filter(row => {
         return (
-            (!filters.Key || row.Key.toLowerCase().includes(filters.Key)) &&
-            (!filters.pin_code_1 || row.pin_code_1.toLowerCase().includes(filters.pin_code_1)) &&
-            (!filters.pin_code_2 || row.pin_code_2.toLowerCase().includes(filters.pin_code_2)) &&
-            (!filters.organization_name || row.organization_name.toLowerCase().includes(filters.organization_name)) &&
-            (!filters.address || row.address.toLowerCase().includes(filters.address)) &&
-            (!filters['Project Name'] || row['Project Name'].toLowerCase().includes(filters['Project Name'])) &&
-            (!filters.Website || row.Website.toLowerCase().includes(filters.Website)) &&
+            (!filters.Key || row.Key?.toLowerCase().includes(filters.Key)) &&
+            (!filters.pin_code_1 || String(row.pin_code_1).includes(filters.pin_code_1)) &&
+            (!filters.pin_code_2 || String(row.pin_code_2).includes(filters.pin_code_2)) &&
+            (!filters.organization_name || row.organization_name?.toLowerCase().includes(filters.organization_name)) &&
+            (!filters.address || row.address?.toLowerCase().includes(filters.address)) &&
+            (!filters['Project Name'] || row['Project Name']?.toLowerCase().includes(filters['Project Name'])) &&
+            (!filters.Website || row.Website?.toLowerCase().includes(filters.Website)) &&
             (!filters.Total_fsi || compareTotalFSI(row.Total_fsi, filters.Total_fsi)) &&
             (!filters.commissionerate || row.Commissionerate === filters.commissionerate) &&
             (!filters.division || row.Division === filters.division) &&
@@ -141,10 +137,10 @@ function filterData() {
 // Comparison function for Total_fsi
 function compareTotalFSI(rowValue, filterValue) {
     const filterMatch = filterValue.match(/^([<>]=?|=)?\s*(\d+(\.\d+)?)$/); // Regex to match operators and numbers
-    if (!filterMatch) return false; // Invalid input format
+    if (!filterMatch) return false;
 
-    const operator = filterMatch[1] || '='; // Default to '=' if no operator is specified
-    const number = parseFloat(filterMatch[2]); // Extract the numeric value
+    const operator = filterMatch[1] || '=';
+    const number = parseFloat(filterMatch[2]);
 
     switch (operator) {
         case '>':
@@ -156,22 +152,15 @@ function compareTotalFSI(rowValue, filterValue) {
         case '<=':
             return parseFloat(rowValue) <= number;
         case '=':
-        case undefined: // Allow bare numbers to mean '='
             return parseFloat(rowValue) === number;
         default:
             return false;
     }
 }
 
-// Event listeners for direct search inputs
-document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('input', filterData);
-});
-
-// Event listeners for dropdown filters
-document.querySelectorAll('select').forEach(select => {
-    select.addEventListener('change', filterData);
-});
+// Event listeners for inputs and filters
+document.querySelectorAll('input').forEach(input => input.addEventListener('input', filterData));
+document.querySelectorAll('select').forEach(select => select.addEventListener('change', filterData));
 
 // Fetch and load data on page load
 document.addEventListener('DOMContentLoaded', fetchData);
