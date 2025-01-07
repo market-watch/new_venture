@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Filters</title>
+    <title>Dynamic Filters</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,7 +47,6 @@
 </head>
 <body>
     <h1>Dynamic Filters</h1>
-    <!-- First Filter Section (Direct Search Inputs) -->
     <div>
         <input type="text" id="Key" placeholder="Search by Key">
         <input type="text" id="pin_code_1" placeholder="Search by Pin Code 1">
@@ -58,100 +57,73 @@
         <input type="text" id="Website" placeholder="Search by Website">
         <input type="text" id="Total_fsi" placeholder="Search by Total FSI">
     </div>
-
-    <!-- Second Filter Section (Dropdown Filters) -->
     <div class="filter-container">
         <div>
             <label for="commissionerate">Commissionerate:</label>
-            <select id="commissionerate">
-                <option value="">All</option>
-            </select>
+            <select id="commissionerate"></select>
         </div>
         <div>
             <label for="division">Division:</label>
-            <select id="division" disabled>
-                <option value="">All</option>
-            </select>
+            <select id="division" disabled></select>
         </div>
         <div>
             <label for="range">Range:</label>
-            <select id="range" disabled>
-                <option value="">All</option>
-            </select>
+            <select id="range" disabled></select>
         </div>
         <div>
             <label for="pro">Pro:</label>
-            <select id="pro">
-                <option value="">All</option>
-            </select>
+            <select id="pro"></select>
         </div>
         <div>
             <label for="organizationType">Organization Type:</label>
-            <select id="organizationType">
-                <option value="">All</option>
-            </select>
+            <select id="organizationType"></select>
         </div>
         <div>
             <label for="pex">Pex:</label>
-            <select id="pex">
-                <option value="">All</option>
-            </select>
+            <select id="pex"></select>
         </div>
         <div>
             <label for="areaShare">Area Share:</label>
-            <select id="areaShare">
-                <option value="">All</option>
-            </select>
+            <select id="areaShare"></select>
         </div>
         <div>
             <label for="revenueShare">Revenue Share:</label>
-            <select id="revenueShare">
-                <option value="">All</option>
-            </select>
+            <select id="revenueShare"></select>
         </div>
         <div>
             <label for="fy">FY:</label>
-            <select id="fy">
-                <option value="">All</option>
-            </select>
+            <select id="fy"></select>
         </div>
     </div>
-
     <h2>Results</h2>
     <div id="results"></div>
-
-    <!-- Table to Display Data -->
     <table>
-    <thead>
-        <tr>
-            <th>Key</th>
-<!--             <th>Value</th> -->
-            <th>Pin Code 1</th>
-            <th>Pin Code 2</th>
-            <th>Pro</th>
-            <th>Organization Type</th>
-            <th>Organization Name</th>
-            <th>Project Status</th>
-            <th>Commissionerate</th>
-            <th>Division</th>
-            <th>Range</th>
-            <th>Address</th>
-            <th>Project Name</th>
-            <th>Completion</th>
-            <th>Pex</th>
-            <th>Website</th>
-<!--             <th>Apartment Details</th> -->
-            <th>Total FSI</th>
-            <th>Area Share</th>
-            <th>Project Link</th>
-            <th>Doc Link</th>
-            <th>Revenue Share</th>
-        </tr>
-    </thead>
-    <tbody id="data-table"></tbody>
-</table>
-
-
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Pin Code 1</th>
+                <th>Pin Code 2</th>
+                <th>Pro</th>
+                <th>Organization Type</th>
+                <th>Organization Name</th>
+                <th>Project Status</th>
+                <th>Commissionerate</th>
+                <th>Division</th>
+                <th>Range</th>
+                <th>Address</th>
+                <th>Project Name</th>
+                <th>Completion</th>
+                <th>Pex</th>
+                <th>Website</th>
+                <th>Total FSI</th>
+                <th>Area Share</th>
+                <th>Project Link</th>
+                <th>Doc Link</th>
+                <th>Revenue Share</th>
+            </tr>
+        </thead>
+        <tbody id="data-table"></tbody>
+    </table>
     <script src="script.js"></script>
 </body>
 </html>
